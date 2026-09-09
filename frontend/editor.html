@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Decodex | Code Editor</title>
+
+    <link
+        rel="stylesheet"
+        href="css/editor.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="editor-page">
+
+
+        <!-- ================================
+             NAVBAR
+        ================================= -->
+
+        <header class="topbar">
+
+            <div class="brand">
+
+                <div class="brand-symbol">
+                    ◇
+                </div>
+
+                <span>Decodex</span>
+
+            </div>
+
+
+            <div class="workspace-title">
+
+                <span>Code Workspace</span>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <button
+                    id="changeLanguage"
+                    class="change-language"
+                >
+                    Change Language
+                </button>
+
+                <div class="top-actions">
+
+    <button
+        id="changeLanguage"
+        class="change-language"
+    >
+        Change Language
+    </button>
+
+</div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================================
+             WORKSPACE
+        ================================= -->
+
+        <main class="workspace">
+
+
+            <!-- ================================
+                 LEFT SIDE - CODE EDITOR
+            ================================= -->
+
+            <section class="code-section">
+
+
+                <!-- EDITOR HEADER -->
+
+                <div class="editor-header">
+
+                    <div class="file-info">
+
+                        <span class="file-icon">
+                            &lt;/&gt;
+                        </span>
+
+                        <span id="fileName">
+                            main.java
+                        </span>
+
+                    </div>
+
+
+                    <div class="language-badge">
+
+                        <span
+                            id="languageName"
+                        >
+                            Java
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CODE AREA -->
+
+                <div class="code-editor">
+
+                    <div class="line-numbers">
+
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                        <span>6</span>
+                        <span>7</span>
+                        <span>8</span>
+                        <span>9</span>
+                        <span>10</span>
+                        <span>11</span>
+                        <span>12</span>
+
+                    </div>
+
+
+    <textarea
+    id="codeInput"
+    spellcheck="false"
+    placeholder="Write your code here..."
+></textarea>
+                </div>
+
+
+                <!-- EDITOR FOOTER -->
+
+                <div class="editor-footer">
+
+                    <div class="editor-status">
+
+                        <span class="status-dot"></span>
+
+                        Ready
+
+                    </div>
+
+
+                    <button
+                        id="runButton"
+                        class="run-button"
+                    >
+
+                        <span>▶</span>
+
+                        Run Code
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================================
+                 RIGHT SIDE
+            ================================= -->
+
+            <section class="result-section">
+
+
+                <!-- OUTPUT -->
+
+                <div class="panel output-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-icon">
+                                ▶
+                            </span>
+
+                            <span>
+                                Output
+                            </span>
+
+                        </div>
+
+                        <span
+                            id="executionStatus"
+                            class="execution-status"
+                        >
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="output"
+                        class="output-content"
+                    >
+
+                        <span class="placeholder">
+                            Run your code to see the output.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI EXPLANATION -->
+
+                <div class="panel explanation-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-icon ai-icon">
+                                ✦
+                            </span>
+
+                            <span>
+                                AI Execution Flow
+                            </span>
+
+                        </div>
+
+                        <span class="ai-label">
+                            AI
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="explanation"
+                        class="explanation-content"
+                    >
+
+                        <div class="ai-empty">
+
+                            <div class="ai-large-icon">
+                                ✦
+                            </div>
+
+                            <h3>
+                                Understand your code
+                            </h3>
+
+                            <p>
+                                Run your program and
+                                Decodex will explain
+                                the execution flow in
+                                simple English.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+        <!-- ================================
+             BOTTOM STATUS
+        ================================= -->
+
+        <footer class="bottom-bar">
+
+            <span>
+                Decodex
+            </span>
+
+            <span>
+                AI-powered code understanding
+            </span>
+
+        </footer>
+
+
+    </div>
+
+
+    <script src="js/editor.js"></script>
+
+</body>
+
+</html>
