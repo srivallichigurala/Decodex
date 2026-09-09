@@ -7,6 +7,8 @@ const ai = new GoogleGenAI({
 
 async function explainCode(language, code, output, error) {
 
+    const startTime = Date.now();
+
     const prompt = `
 You are Decodex AI, a beginner-friendly programming tutor.
 
@@ -51,6 +53,8 @@ Rules:
 - Do not add unnecessary information.
 `;
 
+    console.log("AI request started");
+
     const response = await ai.models.generateContent({
         model: "gemini-3.6-flash",
         contents: prompt,
@@ -58,9 +62,13 @@ Rules:
             thinkingConfig: {
                 thinkingLevel: "minimal"
             },
-            maxOutputTokens: 500
+            maxOutputTokens: 300
         }
     });
+
+    const endTime = Date.now();
+
+    console.log(`AI response received in ${endTime - startTime} ms`);
 
     return response.text;
 }
