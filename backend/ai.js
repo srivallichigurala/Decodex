@@ -5,66 +5,65 @@ const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY
 });
 
-
 async function explainCode(language, code, output, error) {
 
     const prompt = `
 You are Decodex AI, a beginner-friendly programming tutor.
 
-Analyze the following ${language} program.
+Analyze this ${language} program.
 
 CODE:
 ${code}
 
-PROGRAM OUTPUT:
+OUTPUT:
 ${output || "No output"}
 
-PROGRAM ERROR:
+ERROR:
 ${error || "No error"}
 
-Explain the program in very simple English.
+Give a SHORT and SIMPLE explanation.
 
-Follow this exact structure:
+Use exactly this format:
 
 EXECUTION FLOW:
-1. Explain the first important step.
-2. Explain the next important step.
-3. Continue until the program finishes.
+1. First step
+2. Second step
+3. Next important step
 
 KEY CONCEPTS:
-- Mention the important programming concepts used.
-- Explain them briefly.
+- Concept: brief explanation
+- Concept: brief explanation
 
 FINAL RESULT:
-Explain what the program finally produces.
+One or two sentences explaining the result.
 
-If there is an error:
-
+${error ? `
 ERROR EXPLANATION:
-- Explain what went wrong.
-- Identify the problematic part.
-- Explain how to fix it.
+- What went wrong
+- How to fix it
+` : ""}
 
 Rules:
-- Use simple English.
-- Assume the user is a beginner.
-- Do not rewrite the entire program.
-- Do not give unnecessary information.
+- Use very simple English.
+- Keep the explanation concise.
+- Do not rewrite the code.
+- Do not repeat the code.
+- Do not add unnecessary information.
 `;
 
-
     const response = await ai.models.generateContent({
-
         model: "gemini-3.6-flash",
-
-        contents: prompt
-
+        contents: prompt,
+        config: {
+            thinkingConfig: {
+                thinkingLevel: "minimal"
+            },
+            maxOutputTokens: 500
+        }
     });
-
 
     return response.text;
 }
-
 
 module.exports = {
     explainCode
