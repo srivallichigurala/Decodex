@@ -172,8 +172,7 @@ runButton.addEventListener(
             // ==================================
 
             const response =
-                await fetch(
-                    "http://localhost:5000/api/run",
+                await fetch("https://decodex-1jd9.onrender.com/api/run", 
                     {
 
                         method: "POST",
@@ -512,8 +511,7 @@ async function getAIExplanation(
         // ==================================
 
         const response =
-            await fetch(
-                "http://localhost:5000/api/explain",
+            await fetch("https://decodex-1jd9.onrender.com/api/explain", 
                 {
 
                     method: "POST",
